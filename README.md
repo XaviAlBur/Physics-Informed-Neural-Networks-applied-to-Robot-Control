@@ -1,2 +1,53 @@
-# Physics-Informed-Neural-Networks-applied-to-Robot-Control
-We implement the results of the paper by Jingyue Liu and Pablo Borja in 2023 to a 2 degrees-of-freedom robotic arm trajectory tracking.
+# Physics-Informed Neural Networks Applied to Robot Modelling and Control
+
+This repository provides an experimental and theoretical implementation of **Physics-Informed Neural Networks (PINNs)** tailored for non-conservative, underactuated, and flexible robotic systems. Based on the framework introduced by Liu et al. (2023), this project incorporates mechanical priors into deep learning architectures using **Lagrangian Neural Networks (LNNs)** and **Hamiltonian Neural Networks (HNNs)**, overcoming key limitations of traditional unconstrained "black-box" models in motor intelligence.
+
+---
+
+## Experiments & Benchmarks
+
+The repository evaluates PINN dynamics learning across three primary robotic scenarios:
+
+1. **Simulated Continuous Planar Soft Robot:** Evaluates non-conservative dynamics learning in continuous soft structures under controlled conditions.
+2. **Physical Tendon-Driven Soft Robot:** Benchmarks predictive capability under complex real-world friction and non-colocated tendon forces.
+3. **Franka Emika Panda Manipulator:** Trajectory tracking and setpoint regulation validated in PyBullet simulation and physical joint controllers.
+
+---
+
+## Repository Structure
+
+```text
+├── models/
+│   ├── modular_pinn.py       # Base PINN sub-networks (M-NN, P-NN, D-NN, A-NN)
+│   ├── lagrangian_nn.py      # Euler-Lagrange equations & LNN formulations
+│   └── hamiltonian_nn.py     # Port-Hamiltonian formulations & HNN flow
+├── integration/
+│   └── rk4_integrator.py     # 4th-order Runge-Kutta dynamics step
+├── controllers/
+│   └── lyapunov_control.py   # Model-based PD & trajectory tracking controller
+├── experiments/
+│   ├── soft_robot_planar.py  # Experiment 1: Planar soft continuous simulation
+│   ├── tendon_soft_robot.py  # Experiment 2: Tendon-driven soft robot dynamics
+│   └── franka_panda.py       # Experiment 3: Franka Emika Panda trajectory tracking
+├── data/                     # Trajectory datasets and preprocessing scripts
+├── docs/                     # Project report and mathematical appendix
+├── main.py                   # Training and evaluation pipeline
+├── requirements.txt          # Dependencies
+└── README.md                 # Documentation
+```
+
+---
+
+## Team & Authors
+
+* **Xavier Álvarez**
+* **Pol Gallego**
+* **Jordina Gavaldà**
+
+---
+
+## References
+
+1. **Liu, J., Borja, P., & Della Santina, C. (2023).** *Physics-informed Neural Networks to Model and Control Robots: A Theoretical and Experimental Investigation.* arXiv preprint [arXiv:2305.05375](https://arxiv.org/abs/2305.05375).
+2. **Cranmer, M., Greydanus, S., Hoyer, S., Battaglia, P., Spergel, D., & Ho, S. (2020).** *Lagrangian Neural Networks.* ICLR Workshop.
+3. **Greydanus, S., Dzamba, M., & Yosinski, J. (2019).** *Hamiltonian Neural Networks.* Advances in Neural Information Processing Systems (NeurIPS), 32.
