@@ -14,31 +14,7 @@ The repository evaluates PINN dynamics learning across three primary robotic sce
 
 ---
 
-## Repository Structure
-
-```text
-├── models/
-│   ├── modular_pinn.py       # Base PINN sub-networks (M-NN, P-NN, D-NN, A-NN)
-│   ├── lagrangian_nn.py      # Euler-Lagrange equations & LNN formulations
-│   └── hamiltonian_nn.py     # Port-Hamiltonian formulations & HNN flow
-├── integration/
-│   └── rk4_integrator.py     # 4th-order Runge-Kutta dynamics step
-├── controllers/
-│   └── lyapunov_control.py   # Model-based PD & trajectory tracking controller
-├── experiments/
-│   ├── soft_robot_planar.py  # Experiment 1: Planar soft continuous simulation
-│   ├── tendon_soft_robot.py  # Experiment 2: Tendon-driven soft robot dynamics
-│   └── franka_panda.py       # Experiment 3: Franka Emika Panda trajectory tracking
-├── data/                     # Trajectory datasets and preprocessing scripts
-├── docs/                     # Project report and mathematical appendix
-├── main.py                   # Training and evaluation pipeline
-├── requirements.txt          # Dependencies
-└── README.md                 # Documentation
-```
-
----
-
-## Team & Authors
+## Team
 
 * **Xavier Álvarez**
 * **Pol Gallego**
